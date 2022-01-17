@@ -52,7 +52,7 @@ const users = [
     const list = document.querySelector("#user-list");
     function filteredUsers() {
         const userElements = users.map(user => {
-            return `<div class='maindiv'><div class='avatars'><img class="images1" src="${user.avatar}"></div><div><span>${user.first_name}</span><span>${user.last_name}</span></div><div><button class="deletedbutton">delete</button><button class="email">info</button></div></div>`;
+            return `<div class='maindiv'><div class='avatars'><img class="images1" src="${user.avatar}"></div><div><span>${user.first_name}</span><span>${user.last_name}</span></div><div><button class="deletedbutton">delete</button><button onclick="myFunction()">info</button></div><div id="infoemail" class="email1" >${user.email}</div></div>`;
         });
         list.innerHTML = userElements.join('');
       const deletedButton = document.querySelectorAll('.deletedbutton');
@@ -63,3 +63,11 @@ const users = [
       }) 
     }
 filteredUsers();
+function myFunction() {
+  const x = document.getElementById("infoemail");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
