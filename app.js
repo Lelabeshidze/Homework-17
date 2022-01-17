@@ -48,14 +48,18 @@ const users = [
     },
   ];
   
-  const list = document.querySelector('#user-list');
 
-  function filteredUsers(){
-    const usersElements = users.map(user => {
-      return  `<div  id="user-list">${user.avatar}${user.first_name}${user.last_name}</div>`
-    });
-    console.log(usersElements);
-    list.innerHTML = usersElements.join('');
-    
-  }
-  filteredUsers();
+    const list = document.querySelector("#user-list");
+    function filteredUsers() {
+        const userElements = users.map(user => {
+            return `<div class='maindiv'><div class='avatars'><img class="images1" src="${user.avatar}"></div><div><span>${user.first_name}</span><span>${user.last_name}</span></div><div><button class="deletedbutton">delete</button><button class="email">info</button></div></div>`;
+        });
+        list.innerHTML = userElements.join('');
+      const deletedButton = document.querySelectorAll('.deletedbutton');
+      deletedButton.forEach (btn => {
+        btn.addEventListener('click' , e => {
+            btn.parentNode.parentNode.remove();
+        })
+      }) 
+    }
+filteredUsers();
